@@ -32,7 +32,7 @@
 | 代号 | 覆盖平台 | 组长 | 文档 |
 |------|----------|------|------|
 | **TF-01 Professional North Star** | LinkedIn + X (Twitter) | Social Media Strategist | [task-force-01-linkedin-twitter.md](./task-force-01-linkedin-twitter.md) |
-| **TF-02 China Growth Trinity** | 抖音 + 小红书 + 微信公众号 | China Market Localization Strategist | [task-force-02-douyin-xhs-wechat.md](./task-force-02-douyin-xhs-wechat.md) |
+| **TF-02 China Growth Trinity** | 抖音 + 小红书 + 微信公众号 | China Market Localization Strategist | [task-force-02-douyin-xhs-wechat.md](./task-force-02-douyin-xhs-wechat.md)（含 **Sprint 0：爆款采集→密码拆解→撰稿**） |
 
 ## 共享成员（两队皆可抽调）
 

@@ -12,45 +12,51 @@ Conduct an independent quality audit after every execution cycle. Evaluate proje
 
 ## Pre-Conditions
 
-- [ ] NEXUS-Full, NEXUS-Sprint, or NEXUS-Micro cycle marked complete
-- [ ] Pipeline status report or STATUS.md self-reported metrics available
-- [ ] All code artifacts, test reports, and CI logs accessible to reviewers
-- [ ] Phase 3 Dev↔QA loop data available (task pass rates, retry counts)
+- NEXUS-Full, NEXUS-Sprint, or NEXUS-Micro cycle marked complete
+- Pipeline status report or STATUS.md self-reported metrics available
+- All code artifacts, test reports, and CI logs accessible to reviewers
+- Phase 3 Dev↔QA loop data available (task pass rates, retry counts)
 
 ## Independence Rules (Non-Negotiable)
 
 These rules cannot be waived. Any violation invalidates the review.
 
-| Rule | Description |
-|------|-------------|
-| **Reviewer separation** | The agent who built, designed, or managed a work item cannot review that same work item. See Reviewer Assignment Matrix below. |
-| **No cross-division communication** | Each division completes its assessment before any results are shared. The Agents Orchestrator collects all reports simultaneously. |
-| **Evidence before verdict** | Every finding must cite a specific artifact: file path + line number, test report path, screenshot, or CI log. Verbal assertions are not admissible. |
-| **Default pessimism** | All grades start at C. Evidence moves the grade upward. Effort, intent, and output volume do not raise a grade. |
-| **Conflict of interest** | If a reviewer contributed to any aspect of the work under review, they must declare it and recuse from that specific finding. |
+
+| Rule                                | Description                                                                                                                                          |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Reviewer separation**             | The agent who built, designed, or managed a work item cannot review that same work item. See Reviewer Assignment Matrix below.                       |
+| **No cross-division communication** | Each division completes its assessment before any results are shared. The Agents Orchestrator collects all reports simultaneously.                   |
+| **Evidence before verdict**         | Every finding must cite a specific artifact: file path + line number, test report path, screenshot, or CI log. Verbal assertions are not admissible. |
+| **Default pessimism**               | All grades start at C. Evidence moves the grade upward. Effort, intent, and output volume do not raise a grade.                                      |
+| **Conflict of interest**            | If a reviewer contributed to any aspect of the work under review, they must declare it and recuse from that specific finding.                        |
+
 
 ## Reviewer Assignment Matrix
 
 Each division lead reviews work produced by *other* divisions, not their own. All leads listed below are existing agents from the NEXUS roster (see nexus-strategy.md Section 1.3 and Appendix A).
 
-| Division Lead (Reviewer) | Reviews (NOT their own work) | Does NOT Review |
-|--------------------------|------------------------------|-----------------|
-| Sprint Prioritizer (Product) | Engineering output for requirements traceability | Requirements and backlog he authored |
-| UX Architect (Design) | Engineering implementation quality + business readiness | Her own CSS system and UX architecture |
-| Backend Architect (Engineering) | Test quality + infrastructure completeness | His own code and API implementations |
-| DevOps Automator (Engineering/Ops) | Marketing/growth readiness + process compliance | His own CI/CD and infrastructure work |
-| Evidence Collector (Testing) | Engineering architecture decisions + requirements quality | His own test coverage claims |
-| Growth Hacker (Marketing) | Engineering completeness from user-journey perspective | His own growth mechanics and campaigns |
+
+| Division Lead (Reviewer)           | Reviews (NOT their own work)                              | Does NOT Review                        |
+| ---------------------------------- | --------------------------------------------------------- | -------------------------------------- |
+| Sprint Prioritizer (Product)       | Engineering output for requirements traceability          | Requirements and backlog he authored   |
+| UX Architect (Design)              | Engineering implementation quality + business readiness   | Her own CSS system and UX architecture |
+| Backend Architect (Engineering)    | Test quality + infrastructure completeness                | His own code and API implementations   |
+| DevOps Automator (Engineering/Ops) | Marketing/growth readiness + process compliance           | His own CI/CD and infrastructure work  |
+| Evidence Collector (Testing)       | Engineering architecture decisions + requirements quality | His own test coverage claims           |
+| Growth Hacker (Marketing)          | Engineering completeness from user-journey perspective    | His own growth mechanics and campaigns |
+
 
 > **Why these leads?** They are the most active agents across Phase 0-6 with the deepest cross-phase visibility. Each has direct expertise in their review target: Sprint Prioritizer understands requirements traceability, Evidence Collector understands test quality from the Dev↔QA loop, etc.
 
 ## Panel Scale by Cycle Type
 
-| Cycle Type | Trigger Point | Panel Scale |
-|------------|--------------|-------------|
-| NEXUS-Full | After each Phase Gate AND after full pipeline completion | Full panel (6 divisions) |
-| NEXUS-Sprint | After every Sprint closes | Full panel (6 divisions) |
-| NEXUS-Micro | After task or fix is marked complete | Lightweight panel (3 divisions: Engineering + Testing + relevant domain) |
+
+| Cycle Type   | Trigger Point                                            | Panel Scale                                                              |
+| ------------ | -------------------------------------------------------- | ------------------------------------------------------------------------ |
+| NEXUS-Full   | After each Phase Gate AND after full pipeline completion | Full panel (6 divisions)                                                 |
+| NEXUS-Sprint | After every Sprint closes                                | Full panel (6 divisions)                                                 |
+| NEXUS-Micro  | After task or fix is marked complete                     | Lightweight panel (3 divisions: Engineering + Testing + relevant domain) |
+
 
 ## Weighted Scoring Formula
 
@@ -58,22 +64,26 @@ Each division lead reviews work produced by *other* divisions, not their own. Al
 Overall = Product(15%) + Design(15%) + Engineering(25%) + Ops(15%) + Testing(15%) + Marketing(15%)
 ```
 
-| Score | Grade | Interpretation |
-|-------|-------|---------------|
-| 90–100 | A / A- | Production-ready, exemplary quality |
-| 80–89 | B+ / B | Solid work, minor gaps, conditionally deployable |
-| 70–79 | B- | Functional but meaningful gaps, not production-ready |
-| 60–69 | C+ / C | Significant gaps, demo-conditional only |
-| 50–59 | C- / D+ | Major deficiencies, return to build phase |
-| < 50 | D / F | Fundamental failures, architectural review required |
+
+| Score  | Grade   | Interpretation                                       |
+| ------ | ------- | ---------------------------------------------------- |
+| 90–100 | A / A-  | Production-ready, exemplary quality                  |
+| 80–89  | B+ / B  | Solid work, minor gaps, conditionally deployable     |
+| 70–79  | B-      | Functional but meaningful gaps, not production-ready |
+| 60–69  | C+ / C  | Significant gaps, demo-conditional only              |
+| 50–59  | C- / D+ | Major deficiencies, return to build phase            |
+| < 50   | D / F   | Fundamental failures, architectural review required  |
+
 
 ## Self-Report Delta Flags
 
-| Delta | Flag | Action Required |
-|-------|------|----------------|
-| > 5% | ⚠️ Attention | Note in report |
-| > 10% | 🔴 Inflation warning | Explicit callout in summary |
-| Verified% delta > 15% | 🚨 Integrity crisis | Mandatory team retrospective before next cycle |
+
+| Delta                 | Flag                 | Action Required                                |
+| --------------------- | -------------------- | ---------------------------------------------- |
+| > 5%                  | ⚠️ Attention         | Note in report                                 |
+| > 10%                 | 🔴 Inflation warning | Explicit callout in summary                    |
+| Verified% delta > 15% | 🚨 Integrity crisis  | Mandatory team retrospective before next cycle |
+
 
 ---
 
@@ -434,22 +444,25 @@ Product(15%) + Design(15%) + Eng(25%) + Ops(15%) + Testing(15%) + Mkt(15%)
 ### Step 4: Archive
 
 Save the full report to:
+
 ```
 docs/reviews/[cycle-id]-expert-panel-review-[YYYY-MM-DD].md
 ```
 
 ## Quality Gate Checklist
 
-| # | Criterion | Evidence Source | Status |
-|---|-----------|----------------|--------|
-| 1 | All 6 divisions submitted independent reports | Agents Orchestrator collection log | ☐ |
-| 2 | No cross-division communication occurred during review | Division lead declarations | ☐ |
-| 3 | Every finding cites a specific artifact (file:line, report, screenshot) | Report inspection | ☐ |
-| 4 | Self-reported metrics compared against panel consensus with delta flags | Consensus metrics table | ☐ |
-| 5 | Cross-division convergence findings identified (≥3 divisions) | Convergence table | ☐ |
-| 6 | Individual performance grades assigned with evidence | Per-division reports | ☐ |
-| 7 | Minimum viable fix path produced for unmet targets | Fix path table | ☐ |
-| 8 | Report archived | File system verification | ☐ |
+
+| #   | Criterion                                                               | Evidence Source                    | Status |
+| --- | ----------------------------------------------------------------------- | ---------------------------------- | ------ |
+| 1   | All 6 divisions submitted independent reports                           | Agents Orchestrator collection log | ☐      |
+| 2   | No cross-division communication occurred during review                  | Division lead declarations         | ☐      |
+| 3   | Every finding cites a specific artifact (file:line, report, screenshot) | Report inspection                  | ☐      |
+| 4   | Self-reported metrics compared against panel consensus with delta flags | Consensus metrics table            | ☐      |
+| 5   | Cross-division convergence findings identified (≥3 divisions)           | Convergence table                  | ☐      |
+| 6   | Individual performance grades assigned with evidence                    | Per-division reports               | ☐      |
+| 7   | Minimum viable fix path produced for unmet targets                      | Fix path table                     | ☐      |
+| 8   | Report archived                                                         | File system verification           | ☐      |
+
 
 ## Gate Decision
 
@@ -463,12 +476,14 @@ docs/reviews/[cycle-id]-expert-panel-review-[YYYY-MM-DD].md
 
 As the team matures, review intensity scales:
 
-| Team Grade (sustained) | Adjustment |
-|------------------------|-----------|
-| Consistently C or below | Add mandatory mid-cycle lightweight review (3 divisions) |
-| Reaching B consistently | Lightweight panel acceptable for NEXUS-Micro cycles |
-| Reaching B+ consistently | Full panel only required for NEXUS-Full phase gates |
-| Reaching A- consistently | Sampling-based review (spot-check 30% of tasks) |
+
+| Team Grade (sustained)   | Adjustment                                               |
+| ------------------------ | -------------------------------------------------------- |
+| Consistently C or below  | Add mandatory mid-cycle lightweight review (3 divisions) |
+| Reaching B consistently  | Lightweight panel acceptable for NEXUS-Micro cycles      |
+| Reaching B+ consistently | Full panel only required for NEXUS-Full phase gates      |
+| Reaching A- consistently | Sampling-based review (spot-check 30% of tasks)          |
+
 
 Independence rules, evidence requirements, and three-column metrics format are permanent regardless of maturity level.
 

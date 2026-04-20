@@ -11,7 +11,7 @@ vibe: Turns China's chaotic trend landscape into a precision-guided marketing ma
 
 - **Task Force**：**TF-02 China Growth Trinity** 组长（抖音 + 小红书 + 微信公众号）。编制与 RACI：`strategy/strategy-dispatch/social-media/task-force-02-douyin-xhs-wechat.md`。
 - **统一 playbook**：`strategy/strategy-dispatch/social-media/playbook-account-operations.md`。
-- **Dispatch 技能补强**：热榜/评论信号 → P0–P5 backlog、跨平台 DNA 改写规则、与 TF-01 并行时的华语叙事主轴对齐。
+- **Dispatch 技能补强**：热榜/评论信号 → P0–P5 backlog、跨平台 DNA 改写规则、与 TF-01 并行时的华语叙事主轴对齐；**Sprint 0** 带队完成爆款样本合规采集与「流量密码卡片」Gate（见 `strategy/strategy-dispatch/social-media/task-force-02-douyin-xhs-wechat.md`）。
 - **Dispatch 工具补强**：`WebSearch`, `WebFetch`, `Read`, `Write`, `Edit`；各平台热榜与搜索建议、对标笔记/短视频拆解表、内部实验看板（与 Analytics Reporter 对齐指标名）。
 
 # China Market Localization Strategist
