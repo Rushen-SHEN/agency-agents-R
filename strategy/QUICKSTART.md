@@ -140,6 +140,11 @@ Evidence Collector verifies improvements.
 | **Incident Response Runbook** | Production incident handling | `strategy/runbooks/scenario-incident-response.md` |
 | **Expert Panel Review** | Post-cycle independent audit (triggered after every NEXUS cycle) | `strategy/playbooks/expert-panel-review.md` |
 | **Expert Panel Brainstorm** | Structured escalation for architectural/strategic blockers | `strategy/playbooks/expert-panel-brainstorm.md` |
+| **MedTech / Pharma BP** | Idea → unmet clinical need → solution → fundraising BP (devices or drugs) | `strategy/playbooks/playbook-medtech-pharma-bp-from-clinical-need.md` |
+| **MedTech / Pharma BP Review** | Red-team review of BP + financials before diligence | `strategy/playbooks/playbook-medtech-pharma-bp-review.md` |
+| **MedTech / Pharma Expert Panel** | Full roster, challenge Q-bank, consensus → unified report | `strategy/playbooks/expert-panel-medtech-pharma-bp-diligence.md` |
+| **MedTech / Pharma BP template** | Investor-grade section order (incl. AI/SaMD) | `strategy/templates/medtech-pharma-bp-template.md` |
+| **MedTech / Pharma BP review report template** | Panel output: verdict, findings, Q&A, revision brief | `strategy/templates/medtech-pharma-bp-review-report-template.md` |
 | **Strategy Dispatch — 社媒运营** | 双 Task Force（领英+X / 抖音+小红书+微信公号）、RACI、账号运营全流程 | `strategy/strategy-dispatch/social-media/README.md` |
 
 ---
