@@ -1,6 +1,6 @@
 # 🔨 Phase 3 Playbook — Build & Iterate
 
-> **Duration**: 2-12 weeks (varies by scope) | **Agents**: 15-30+ | **Gate Keeper**: Agents Orchestrator
+> **Duration**: 2-12 weeks (varies by scope) | **Agents**: 15-30+ | **Gate Keeper**: NEXUS
 
 ---
 
@@ -18,7 +18,7 @@ Implement all features through continuous Dev↔QA loops. Every task is validate
 
 ## The Dev↔QA Loop — Core Mechanic
 
-The Agents Orchestrator manages every task through this cycle:
+The NEXUS manages every task through this cycle:
 
 ```
 FOR EACH task IN sprint_backlog (ordered by RICE score):
@@ -37,7 +37,7 @@ FOR EACH task IN sprint_backlog (ordered by RICE score):
        Developer FIXES specific issues
        Return to step 3
      ELIF attempts >= 3:
-       ESCALATE to Agents Orchestrator
+       ESCALATE to NEXUS
        Orchestrator decides: reassign, decompose, defer, or accept
   5. UPDATE pipeline status report
 ```
@@ -80,7 +80,7 @@ For NEXUS-Full deployments, four tracks run simultaneously:
 
 ### Track A: Core Product Development
 ```
-Managed by: Agents Orchestrator (Dev↔QA loop)
+Managed by: NEXUS (Dev↔QA loop)
 Agents: Frontend Developer, Backend Architect, AI Engineer,
         Mobile App Builder, Senior Developer
 QA: Evidence Collector, API Tester, Test Results Analyzer
@@ -106,7 +106,7 @@ Activities:
 
 ### Track C: Quality & Operations
 ```
-Managed by: Agents Orchestrator
+Managed by: NEXUS
 Agents: Evidence Collector, API Tester, Performance Benchmarker,
         Workflow Optimizer, Experiment Tracker
 
@@ -149,7 +149,7 @@ Output: Sprint Plan with task assignments
 ### Daily Execution (Day 2 to Day N-1)
 
 ```
-Agents Orchestrator manages:
+NEXUS manages:
 1. Current task status check
 2. Dev↔QA loop execution
 3. Blocker identification and resolution
@@ -245,7 +245,7 @@ WHEN task has dependencies:
 
 ## Gate Decision
 
-**Gate Keeper**: Agents Orchestrator
+**Gate Keeper**: NEXUS
 
 - **PASS**: Feature-complete application → Phase 4 activation
 - **CONTINUE**: More sprints needed → Continue Phase 3

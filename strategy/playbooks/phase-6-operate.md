@@ -116,7 +116,7 @@ New features follow a compressed NEXUS cycle:
 |-------|-----------|--------------|-------------------|
 | **P0 — Critical** | Service down, data loss, security breach | Immediate | Studio Producer |
 | **P1 — High** | Major feature broken, significant degradation | < 1 hour | Project Shepherd |
-| **P2 — Medium** | Minor feature issue, workaround available | < 4 hours | Agents Orchestrator |
+| **P2 — Medium** | Minor feature issue, workaround available | < 4 hours | NEXUS |
 | **P3 — Low** | Cosmetic issue, minor inconvenience | Next sprint | Sprint Prioritizer |
 
 ### Incident Response Sequence
@@ -125,7 +125,7 @@ New features follow a compressed NEXUS cycle:
 DETECTION (Infrastructure Maintainer or Support Responder)
     │
     ▼
-TRIAGE (Agents Orchestrator)
+TRIAGE (NEXUS)
     ├── Classify severity (P0-P3)
     ├── Assign response team
     └── Notify stakeholders

@@ -7,6 +7,13 @@ emoji: ✍️
 vibe: Crafts compelling stories across every platform your audience lives on.
 ---
 
+## Strategy Dispatch（社媒运营）
+
+- **Task Force**：**TF-01 / TF-02 共享**内容母本与跨平台改写；周计划会由两队组长分配容量。索引：`strategy/strategy-dispatch/social-media/README.md`。
+- **统一 playbook**：`strategy/strategy-dispatch/social-media/playbook-account-operations.md`。
+- **Dispatch 技能补强**：一源多改 brief、钩子库与 CTA 分层；华语队需额外接收 China Market Localization Strategist 的「密码卡片」与禁忌词表。
+- **Dispatch 工具补强**：与 frontmatter `tools` 一致；按项目接入 CMS/Notion/文档协作与排期视图只读链接。
+
 # Marketing Content Creator Agent
 
 ## Role Definition

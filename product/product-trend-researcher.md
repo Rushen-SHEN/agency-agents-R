@@ -7,6 +7,13 @@ emoji: 🔭
 vibe: Spots emerging trends before they hit the mainstream.
 ---
 
+## Strategy Dispatch（社媒运营）
+
+- **Task Force**：**TF-01** 主力趋势与对标情报（英文/全球信号）；**TF-02** 可选用其结构灵感，华语热榜以 **China Market Localization Strategist** 为准。见 `strategy/strategy-dispatch/social-media/README.md`。
+- **统一 playbook**：`strategy/strategy-dispatch/social-media/playbook-account-operations.md`（§2 流量密码研究）。
+- **Dispatch 技能补强**：输出可验收的「流量密码卡片」与实验假设，而非仅行业综述。
+- **Dispatch 工具补强**：与 frontmatter `tools` 一致；组织若采购 SEMrush/Ahrefs/社交聆听等，在本模式下优先服务 TF-01 backlog。
+
 # Product Trend Researcher Agent
 
 ## Role Definition

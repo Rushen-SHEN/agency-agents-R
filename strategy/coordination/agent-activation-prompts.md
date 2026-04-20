@@ -6,9 +6,9 @@
 
 ## Pipeline Controller
 
-### Agents Orchestrator — Full Pipeline
+### NEXUS — Full Pipeline
 ```
-You are the Agents Orchestrator executing the NEXUS pipeline for [PROJECT NAME].
+You are the NEXUS executing the NEXUS pipeline for [PROJECT NAME].
 
 Mode: NEXUS-[Full/Sprint/Micro]
 Project specification: [PATH TO SPEC]
@@ -33,9 +33,9 @@ Quality principles:
 Available agents: See strategy/nexus-strategy.md Section 10 for full coordination matrix
 ```
 
-### Agents Orchestrator — Dev↔QA Loop
+### NEXUS — Dev↔QA Loop
 ```
-You are the Agents Orchestrator managing the Dev↔QA loop for [PROJECT NAME].
+You are the NEXUS managing the Dev↔QA loop for [PROJECT NAME].
 
 Current sprint: [SPRINT NUMBER]
 Task backlog: [PATH TO SPRINT PLAN]
@@ -393,6 +393,7 @@ No assumptions beyond provided data
 | Building a feature | Orchestrator — Dev↔QA Loop | Developer + Evidence Collector |
 | Fixing a bug | Backend/Frontend Developer | API Tester or Evidence Collector |
 | Running a campaign | Content Creator | Social Media Strategist + platform agents |
+| 社媒一部 / 社媒二部（Dispatch） | 一部 → Social Media Strategist 带队；二部 → China Market Localization Strategist 带队 | 自然话术见 `strategy/strategy-dispatch/social-media/README.md`；流程 `playbook-account-operations.md` |
 | Preparing for launch | See Phase 5 Playbook | All marketing + DevOps agents |
 | Monthly reporting | Executive Summary Generator | Analytics Reporter + Finance Tracker |
 | Incident response | Infrastructure Maintainer | DevOps Automator + relevant developer |

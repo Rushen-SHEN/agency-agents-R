@@ -84,7 +84,7 @@ Use when Evidence Collector or other QA agent approves a task.
 [Any observations, minor suggestions for future improvement, or positive callouts]
 
 ## Next Action
-→ Agents Orchestrator: Mark task complete, advance to next task in backlog
+→ NEXUS: Mark task complete, advance to next task in backlog
 ```
 
 ---
@@ -140,7 +140,7 @@ Use when Evidence Collector or other QA agent rejects a task.
 3. Re-submit for QA when all issues are addressed
 4. This is attempt [N] of 3 maximum
 
-**If attempt 3 fails**: Task will be escalated to Agents Orchestrator
+**If attempt 3 fails**: Task will be escalated to NEXUS
 ```
 
 ---
@@ -160,7 +160,7 @@ Use when a task exceeds 3 retry attempts.
 | **Developer Agent** | [Agent Name] |
 | **QA Agent** | [Agent Name] |
 | **Attempts Exhausted** | 3/3 |
-| **Escalation To** | [Agents Orchestrator / Studio Producer] |
+| **Escalation To** | [NEXUS / Studio Producer] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
 
 ## Failure History
@@ -198,7 +198,7 @@ Use when a task exceeds 3 retry attempts.
 **Quality Impact**: [What quality compromises exist if we accept current state]
 
 ## Decision Required
-**Decision maker**: [Agents Orchestrator / Studio Producer]
+**Decision maker**: [NEXUS / Studio Producer]
 **Deadline**: [When decision is needed to avoid further delays]
 ```
 
@@ -355,3 +355,37 @@ Use during incident response.
 | Moving between phases | Phase Gate Handoff (#5) |
 | End of sprint | Sprint Handoff (#6) |
 | System incident | Incident Handoff (#7) |
+| Sprint closes (for Expert Panel Review) | Sprint Verification Evidence Package (#8) |
+
+---
+
+## 8. Sprint Verification Evidence Package
+
+Use when closing a Sprint to document verification evidence for the Expert Panel Review.
+
+```markdown
+# NEXUS Sprint Verification Evidence Package
+
+## Sprint: [Number]
+## Verified by: Sprint Prioritizer (Product) + Evidence Collector (Testing)
+## Timestamp: [YYYY-MM-DDTHH:MM:SSZ]
+
+## Three-Column Metrics
+| Module/Feature | Implemented% | Tested% | Reviewer-Confirmed% |
+|---------------|-------------|---------|---------------------|
+| [Module 1] | X% | Y% | Z% |
+
+## Test Evidence Inventory
+| Task ID | Test Type | Test File Path | Run Status | Report Link |
+|---------|----------|---------------|-----------|------------|
+| T-XX | API test | tests/... | PASS/FAIL | ... |
+| T-XX | E2E | e2e/... | PASS/FAIL | ... |
+
+## Uncovered High-Risk Items
+| Task ID | Risk Reason | Planned Coverage Sprint |
+|---------|-----------|----------------------|
+
+## Sign-Off
+- Sprint Prioritizer (Product): [ ] Traceability figures confirmed accurate
+- Evidence Collector (Testing): [ ] Test coverage figures confirmed accurate
+```

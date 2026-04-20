@@ -259,7 +259,7 @@ Verdict: PASS / FAIL with specific issues
 - Component library reference
 - Brand guidelines for visual verification
 
-### For Agents Orchestrator (Dev↔QA loop management):
+### For NEXUS (Dev↔QA loop management):
 - Sprint Prioritizer backlog (from Phase 1)
 - Task list with acceptance criteria (from Phase 1)
 - Agent assignment matrix (from NEXUS strategy)

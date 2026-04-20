@@ -1,6 +1,6 @@
 # ⚡ NEXUS Quick-Start Guide
 
-> **Get from zero to orchestrated multi-agent pipeline in 5 minutes.**
+> **NEXUS** (formerly **Agents Orchestrator**) — Get from zero to orchestrated multi-agent pipeline in 5 minutes.
 
 ---
 
@@ -23,7 +23,7 @@
 **Copy this prompt to activate the full pipeline:**
 
 ```
-Activate Agents Orchestrator in NEXUS-Full mode.
+Activate NEXUS in NEXUS-Full mode.
 
 Project: [YOUR PROJECT NAME]
 Specification: [DESCRIBE YOUR PROJECT OR LINK TO SPEC]
@@ -48,7 +48,7 @@ Maximum 3 retries per task before escalation.
 **Copy this prompt:**
 
 ```
-Activate Agents Orchestrator in NEXUS-Sprint mode.
+Activate NEXUS in NEXUS-Sprint mode.
 
 Feature/MVP: [DESCRIBE WHAT YOU'RE BUILDING]
 Timeline: [TARGET WEEKS]
@@ -138,6 +138,9 @@ Evidence Collector verifies improvements.
 | **Enterprise Feature Runbook** | Enterprise feature development | `strategy/runbooks/scenario-enterprise-feature.md` |
 | **Marketing Campaign Runbook** | Multi-channel campaign | `strategy/runbooks/scenario-marketing-campaign.md` |
 | **Incident Response Runbook** | Production incident handling | `strategy/runbooks/scenario-incident-response.md` |
+| **Expert Panel Review** | Post-cycle independent audit (triggered after every NEXUS cycle) | `strategy/playbooks/expert-panel-review.md` |
+| **Expert Panel Brainstorm** | Structured escalation for architectural/strategic blockers | `strategy/playbooks/expert-panel-brainstorm.md` |
+| **Strategy Dispatch — 社媒运营** | 双 Task Force（领英+X / 抖音+小红书+微信公号）、RACI、账号运营全流程 | `strategy/strategy-dispatch/social-media/README.md` |
 
 ---
 
@@ -147,7 +150,7 @@ Evidence Collector verifies improvements.
 2. **Dev↔QA Loop** — Every task is built then tested; PASS to proceed, FAIL to retry (max 3)
 3. **Handoffs** — Structured context transfer between agents (never start cold)
 4. **Reality Checker** — Final quality authority; defaults to "NEEDS WORK"
-5. **Agents Orchestrator** — Pipeline controller managing the entire flow
+5. **NEXUS** — Pipeline controller managing the entire flow
 6. **Evidence Over Claims** — Screenshots, test results, and data — not assertions
 
 ---
@@ -175,7 +178,7 @@ Feedback Synthesizer│ Studio Operations   │ Test Results Analyzer
                     │                     │ Workflow Optimizer
 ────────────────────┼─────────────────────┼──────────────────────
 SUPPORT             │ SPATIAL             │ SPECIALIZED
-Support Responder   │ XR Interface Arch.  │ Agents Orchestrator
+Support Responder   │ XR Interface Arch.  │ NEXUS
 Analytics Reporter  │ macOS Spatial/Metal │ Analytics Reporter
 Finance Tracker     │ XR Immersive Dev    │ LSP/Index Engineer
 Infra Maintainer    │ XR Cockpit Spec.    │ Sales Data Extraction

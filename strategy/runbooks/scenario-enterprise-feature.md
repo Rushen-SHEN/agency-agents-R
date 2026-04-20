@@ -13,7 +13,7 @@ You're adding a major feature to an existing enterprise product. Compliance, sec
 ### Core Team
 | Agent | Role |
 |-------|------|
-| Agents Orchestrator | Pipeline controller |
+| NEXUS | Pipeline controller |
 | Project Shepherd | Cross-functional coordination |
 | Senior Project Manager | Spec-to-task conversion |
 | Sprint Prioritizer | Backlog management |
@@ -79,7 +79,7 @@ Week 2: Technical Architecture
 
 ```
 Sprint 1-3 (Week 4-9):
-├── Agents Orchestrator → Dev↔QA loop management
+├── NEXUS → Dev↔QA loop management
 ├── Frontend Developer → UI implementation (task by task)
 ├── Backend Architect → API implementation (task by task)
 ├── Senior Developer → Complex/premium features
@@ -130,7 +130,7 @@ Week 11: Final Judgment
 |----------|-----------|-------|--------|
 | Executive sponsors | Bi-weekly | Executive Summary Generator | SCQA summary (≤500 words) |
 | Product team | Weekly | Project Shepherd | Status report |
-| Engineering team | Daily | Agents Orchestrator | Pipeline status |
+| Engineering team | Daily | NEXUS | Pipeline status |
 | Compliance team | Monthly | Legal Compliance Checker | Compliance status |
 | Finance | Monthly | Finance Tracker | Budget report |
 

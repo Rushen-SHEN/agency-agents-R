@@ -13,7 +13,7 @@ You're building a startup MVP — a new product that needs to validate product-m
 ### Core Team (Always Active)
 | Agent | Role |
 |-------|------|
-| Agents Orchestrator | Pipeline controller |
+| NEXUS | Pipeline controller |
 | Senior Project Manager | Spec-to-task conversion |
 | Sprint Prioritizer | Backlog management |
 | UX Architect | Technical foundation |
@@ -67,7 +67,7 @@ Day 5: Foundation Setup
 
 ```
 Sprint 1 (Week 2):
-├── Agents Orchestrator manages Dev↔QA loop
+├── NEXUS manages Dev↔QA loop
 ├── Frontend Developer → Core UI (auth, main views, navigation)
 ├── Backend Architect → Core API (auth, CRUD, business logic)
 ├── Evidence Collector → QA every completed task
