@@ -1,34 +1,56 @@
 # Cursor Integration
 
-Converts the full Agency roster into Cursor `.mdc` rule files. Rules are
-**project-scoped** — install them from your project root.
+Converts The Agency into **global Cursor skills** installed under
+`~/.cursor/skills/`.
+
+This integration is built around **NEXUS** as the top-level orchestrator:
+
+- Every agent becomes a globally available Cursor skill
+- `nexus` becomes the pipeline controller
+- The `nexus` skill bundles `strategy/nexus-strategy.md`, phase playbooks,
+  runbooks, handoff templates, and strategy-dispatch references
 
 ## Install
 
 ```bash
-# Run from your project root
-cd /your/project
-/path/to/agency-agents/scripts/install.sh --tool cursor
+./scripts/convert.sh --tool cursor
+./scripts/install.sh --tool cursor
 ```
 
-This creates `.cursor/rules/<agent-slug>.mdc` files in your project.
+This creates skill folders like:
 
-## Activate a Rule
-
-In Cursor, reference an agent in your prompt:
-
+```text
+~/.cursor/skills/
+  nexus/
+    SKILL.md
+    references/
+  frontend-developer/
+    SKILL.md
+  backend-architect/
+    SKILL.md
 ```
-@frontend-developer Review this React component for performance issues.
+
+## Use in Cursor
+
+Skills are global, so they are available across all your projects.
+
+Start with the orchestrator:
+
+```text
+/nexus
 ```
 
-Or enable a rule as always-on by editing its frontmatter:
+Then ask for a mode or pipeline:
 
-```yaml
----
-description: Expert frontend developer...
-globs: "**/*.tsx,**/*.ts"
-alwaysApply: true
----
+```text
+Activate NEXUS in NEXUS-Sprint mode for this feature and dispatch the right specialists.
+```
+
+You can also call a specialist directly:
+
+```text
+/frontend-developer
+Review this React component for performance issues.
 ```
 
 ## Regenerate

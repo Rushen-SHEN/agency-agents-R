@@ -15,7 +15,7 @@
 #   antigravity  -- Copy skills to ~/.gemini/antigravity/skills/
 #   gemini-cli   -- Install extension to ~/.gemini/extensions/agency-agents/
 #   opencode     -- Copy agents to .opencode/agents/ in current directory
-#   cursor       -- Copy rules to .cursor/rules/ in current directory
+#   cursor       -- Copy skills to ~/.cursor/skills/
 #   aider        -- Copy CONVENTIONS.md to current directory
 #   windsurf     -- Copy .windsurfrules to current directory
 #   openclaw     -- Copy workspaces to ~/.openclaw/agency-agents/
@@ -176,7 +176,7 @@ tool_label() {
     gemini-cli)  printf "%-14s  %s" "Gemini CLI"   "(gemini extension)"      ;;
     opencode)    printf "%-14s  %s" "OpenCode"     "(opencode.ai)"           ;;
     openclaw)    printf "%-14s  %s" "OpenClaw"     "(~/.openclaw/agency-agents)" ;;
-    cursor)      printf "%-14s  %s" "Cursor"       "(.cursor/rules)"         ;;
+    cursor)      printf "%-14s  %s" "Cursor"       "(~/.cursor/skills)"      ;;
     aider)       printf "%-14s  %s" "Aider"        "(CONVENTIONS.md)"        ;;
     windsurf)    printf "%-14s  %s" "Windsurf"     "(.windsurfrules)"        ;;
     qwen)        printf "%-14s  %s" "Qwen Code"    "(~/.qwen/agents)"        ;;
@@ -437,17 +437,21 @@ install_openclaw() {
 }
 
 install_cursor() {
-  local src="$INTEGRATIONS/cursor/rules"
-  local dest="${PWD}/.cursor/rules"
+  local src="$INTEGRATIONS/cursor/skills"
+  local dest="${HOME}/.cursor/skills"
   local count=0
   [[ -d "$src" ]] || { err "integrations/cursor missing. Run convert.sh first."; return 1; }
   mkdir -p "$dest"
-  local f
-  while IFS= read -r -d '' f; do
-    cp "$f" "$dest/"; (( count++ )) || true
-  done < <(find "$src" -maxdepth 1 -name "*.mdc" -print0)
-  ok "Cursor: $count rules -> $dest"
-  warn "Cursor: project-scoped. Run from your project root to install there."
+  local d name
+  while IFS= read -r -d '' d; do
+    name="$(basename "$d")"
+    rm -rf "$dest/$name"
+    cp -R "$d" "$dest/$name"
+    (( count++ )) || true
+  done < <(find "$src" -mindepth 1 -maxdepth 1 -type d -print0)
+  ok "Cursor: $count skills -> $dest"
+  warn "Cursor: installed globally. Skills auto-load across projects."
+  dim  "         Start with /nexus for pipeline orchestration or /frontend-developer for a specialist."
 }
 
 install_aider() {

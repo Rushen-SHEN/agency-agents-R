@@ -11,7 +11,7 @@ supported agentic coding tools.
 - **[Gemini CLI](#gemini-cli)** — extension + `SKILL.md` files in `gemini-cli/`
 - **[OpenCode](#opencode)** — `.md` agent files in `opencode/`
 - **[OpenClaw](#openclaw)** — `SOUL.md` + `AGENTS.md` + `IDENTITY.md` workspaces
-- **[Cursor](#cursor)** — `.mdc` rule files in `cursor/`
+- **[Cursor](#cursor)** — global `SKILL.md` files in `cursor/`
 - **[Aider](#aider)** — `CONVENTIONS.md` in `aider/`
 - **[Windsurf](#windsurf)** — `.windsurfrules` in `windsurf/`
 - **[Kimi Code](#kimi-code)** — YAML agent specs in `kimi/`
@@ -44,7 +44,7 @@ If you install OpenClaw and the gateway is already running, restart it after ins
 openclaw gateway restart
 ```
 
-For project-scoped tools such as OpenCode, Cursor, Aider, Windsurf, and Qwen
+For project-scoped tools such as OpenCode, Aider, Windsurf, and Qwen
 Code, run
 the installer from your target project root as shown in the tool-specific
 sections below.
@@ -151,11 +151,13 @@ See [openclaw/README.md](openclaw/README.md) for details.
 
 ## Cursor
 
-Each agent becomes a `.mdc` rule file. Rules are project-scoped — run the
-installer from your project root.
+Each agent becomes a Cursor skill in `~/.cursor/skills/`. The NEXUS
+orchestrator skill also includes the NEXUS strategy, playbooks, runbooks, and
+dispatch references so it can route your global agent roster.
 
 ```bash
-cd /your/project && /path/to/agency-agents/scripts/install.sh --tool cursor
+/path/to/agency-agents/scripts/convert.sh --tool cursor
+/path/to/agency-agents/scripts/install.sh --tool cursor
 ```
 
 See [cursor/README.md](cursor/README.md) for details.

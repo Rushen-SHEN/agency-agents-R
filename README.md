@@ -549,7 +549,7 @@ The Agency works natively with Claude Code, and ships conversion + install scrip
 - **[Antigravity](https://github.com/google-gemini/antigravity)** — `SKILL.md` per agent → `~/.gemini/antigravity/skills/`
 - **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** — extension + `SKILL.md` files → `~/.gemini/extensions/agency-agents/`
 - **[OpenCode](https://opencode.ai)** — `.md` agent files → `.opencode/agents/`
-- **[Cursor](https://cursor.sh)** — `.mdc` rule files → `.cursor/rules/`
+- **[Cursor](https://cursor.sh)** — global `SKILL.md` files → `~/.cursor/skills/`
 - **[Aider](https://aider.chat)** — single `CONVENTIONS.md` → `./CONVENTIONS.md`
 - **[Windsurf](https://codeium.com/windsurf)** — single `.windsurfrules` → `./.windsurfrules`
 - **[OpenClaw](https://github.com/openclaw/openclaw)** — `SOUL.md` + `AGENTS.md` + `IDENTITY.md` per agent
@@ -587,7 +587,7 @@ The installer scans your system for installed tools, shows a checkbox UI, and le
   [ ]  4)  [ ]  Gemini CLI      (gemini extension)
   [ ]  5)  [ ]  OpenCode        (opencode.ai)
   [ ]  6)  [ ]  OpenClaw        (~/.openclaw/agency-agents)
-  [x]  7)  [*]  Cursor          (.cursor/rules)
+  [x]  7)  [*]  Cursor          (~/.cursor/skills)
   [ ]  8)  [ ]  Aider           (CONVENTIONS.md)
   [ ]  9)  [ ]  Windsurf        (.windsurfrules)
   [ ] 10)  [ ]  Qwen Code       (~/.qwen/agents)
@@ -716,16 +716,19 @@ See [integrations/opencode/README.md](integrations/opencode/README.md) for detai
 <details>
 <summary><strong>Cursor</strong></summary>
 
-Each agent becomes a `.mdc` rule file in `.cursor/rules/` of your project.
+Each agent becomes a global Cursor skill in `~/.cursor/skills/`. The
+`nexus` skill is the top-level orchestrator and carries the NEXUS strategy,
+playbooks, runbooks, and dispatch references.
 
 ```bash
-cd /your/project
-/path/to/agency-agents/scripts/install.sh --tool cursor
+./scripts/convert.sh --tool cursor
+./scripts/install.sh --tool cursor
 ```
 
-Rules are auto-applied when Cursor detects them in the project. Reference them explicitly:
+Invoke the global orchestrator or a specialist directly:
 ```
-Use the @security-engineer rules to review this code.
+/nexus
+/security-engineer
 ```
 
 See [integrations/cursor/README.md](integrations/cursor/README.md) for details.

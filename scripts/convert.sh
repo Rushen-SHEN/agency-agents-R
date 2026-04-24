@@ -13,7 +13,7 @@
 #   antigravity  — Antigravity skill files (~/.gemini/antigravity/skills/)
 #   gemini-cli   — Gemini CLI extension (skills/ + gemini-extension.json)
 #   opencode     — OpenCode agent files (.opencode/agents/*.md)
-#   cursor       — Cursor rule files (.cursor/rules/*.mdc)
+#   cursor       — Cursor skills (~/.cursor/skills/<skill>/SKILL.md)
 #   aider        — Single CONVENTIONS.md for Aider
 #   windsurf     — Single .windsurfrules for Windsurf
 #   openclaw     — OpenClaw workspaces (integrations/openclaw/<agent>/SOUL.md)
@@ -225,27 +225,122 @@ ${body}
 HEREDOC
 }
 
+cursor_skill_slug() {
+  local name="$1"
+  if [[ "$name" == "Agents Orchestrator" ]]; then
+    echo "nexus"
+  else
+    slugify "$name"
+  fi
+}
+
+copy_cursor_reference() {
+  local src_rel="$1" dest_dir="$2" dest_name="$3"
+  cp "$REPO_ROOT/$src_rel" "$dest_dir/$dest_name"
+}
+
+write_cursor_nexus_references() {
+  local outdir="$1"
+  local refs_dir="$outdir/references"
+  mkdir -p "$refs_dir"
+
+  copy_cursor_reference "strategy/QUICKSTART.md" "$refs_dir" "QUICKSTART.md"
+  copy_cursor_reference "strategy/nexus-strategy.md" "$refs_dir" "nexus-strategy.md"
+  copy_cursor_reference "strategy/coordination/agent-activation-prompts.md" "$refs_dir" "agent-activation-prompts.md"
+  copy_cursor_reference "strategy/coordination/handoff-templates.md" "$refs_dir" "handoff-templates.md"
+
+  copy_cursor_reference "strategy/playbooks/phase-0-discovery.md" "$refs_dir" "phase-0-discovery.md"
+  copy_cursor_reference "strategy/playbooks/phase-1-strategy.md" "$refs_dir" "phase-1-strategy.md"
+  copy_cursor_reference "strategy/playbooks/phase-2-foundation.md" "$refs_dir" "phase-2-foundation.md"
+  copy_cursor_reference "strategy/playbooks/phase-3-build.md" "$refs_dir" "phase-3-build.md"
+  copy_cursor_reference "strategy/playbooks/phase-4-hardening.md" "$refs_dir" "phase-4-hardening.md"
+  copy_cursor_reference "strategy/playbooks/phase-5-launch.md" "$refs_dir" "phase-5-launch.md"
+  copy_cursor_reference "strategy/playbooks/phase-6-operate.md" "$refs_dir" "phase-6-operate.md"
+  copy_cursor_reference "strategy/playbooks/expert-panel-review.md" "$refs_dir" "expert-panel-review.md"
+  copy_cursor_reference "strategy/playbooks/expert-panel-brainstorm.md" "$refs_dir" "expert-panel-brainstorm.md"
+
+  copy_cursor_reference "strategy/runbooks/scenario-startup-mvp.md" "$refs_dir" "runbook-startup-mvp.md"
+  copy_cursor_reference "strategy/runbooks/scenario-enterprise-feature.md" "$refs_dir" "runbook-enterprise-feature.md"
+  copy_cursor_reference "strategy/runbooks/scenario-marketing-campaign.md" "$refs_dir" "runbook-marketing-campaign.md"
+  copy_cursor_reference "strategy/runbooks/scenario-incident-response.md" "$refs_dir" "runbook-incident-response.md"
+
+  copy_cursor_reference "strategy/strategy-dispatch/README.md" "$refs_dir" "strategy-dispatch.md"
+  copy_cursor_reference "strategy/strategy-dispatch/social-media/README.md" "$refs_dir" "strategy-dispatch-social-media.md"
+}
+
 convert_cursor() {
   local file="$1"
-  local name description slug outfile body
+  local name description slug outdir outfile body skill_description
 
   name="$(get_field "name" "$file")"
   description="$(get_field "description" "$file")"
-  slug="$(slugify "$name")"
+  slug="$(cursor_skill_slug "$name")"
   body="$(get_body "$file")"
 
-  outfile="$OUT_DIR/cursor/rules/${slug}.mdc"
-  mkdir -p "$OUT_DIR/cursor/rules"
+  outdir="$OUT_DIR/cursor/skills/${slug}"
+  outfile="$outdir/SKILL.md"
+  mkdir -p "$outdir"
 
-  # Cursor .mdc format: description + globs + alwaysApply frontmatter
-  cat > "$outfile" <<HEREDOC
+  if [[ "$slug" == "nexus" ]]; then
+    skill_description="Global pipeline controller for The Agency. Orchestrates NEXUS-Full, NEXUS-Sprint, and NEXUS-Micro workflows using the NEXUS strategy, playbooks, runbooks, and handoff templates. Use when the user wants multi-agent coordination, pipeline planning, dispatch, quality-gated execution, or playbook-based routing."
+    body="${body//AgentsOrchestrator/NEXUS}"
+    body="${body//WorkflowOrchestrator/NEXUS}"
+    write_cursor_nexus_references "$outdir"
+    cat > "$outfile" <<HEREDOC
 ---
-description: ${description}
-globs: ""
-alwaysApply: false
+name: ${slug}
+description: >-
+  ${skill_description}
 ---
+
+# NEXUS
+
+## Mission
+
+Treat The Agency as a globally available agent network. You are the pipeline controller that selects the correct NEXUS mode, loads the right strategy references, dispatches specialist skills, enforces handoffs, and owns phase quality gates.
+
+## Operating Protocol
+
+1. Start with \`references/QUICKSTART.md\` to choose NEXUS-Full, NEXUS-Sprint, or NEXUS-Micro.
+2. Treat \`references/nexus-strategy.md\` as the canonical doctrine for phase sequencing, retries, escalation, quality gates, and handoff discipline.
+3. Load only the phase playbooks, runbooks, and dispatch documents needed for the active mission.
+4. Dispatch specialist skills with explicit deliverables, acceptance criteria, output format, and return handoff.
+5. Require evidence at every gate. No phase advances without verified outputs.
+6. Use \`references/expert-panel-brainstorm.md\` for cross-domain blockers and \`references/expert-panel-review.md\` for post-cycle audit.
+
+## Reference Map
+
+- Core doctrine: \`references/QUICKSTART.md\`, \`references/nexus-strategy.md\`
+- Coordination: \`references/agent-activation-prompts.md\`, \`references/handoff-templates.md\`
+- Phase playbooks: \`references/phase-0-discovery.md\` through \`references/phase-6-operate.md\`
+- Review/escalation: \`references/expert-panel-review.md\`, \`references/expert-panel-brainstorm.md\`
+- Scenario runbooks: \`references/runbook-startup-mvp.md\`, \`references/runbook-enterprise-feature.md\`, \`references/runbook-marketing-campaign.md\`, \`references/runbook-incident-response.md\`
+- Dispatch packs: \`references/strategy-dispatch.md\`, \`references/strategy-dispatch-social-media.md\`
+
+## Legacy Orchestrator Baseline
+
 ${body}
 HEREDOC
+  else
+    skill_description="${description} Use when the user needs ${name} expertise or asks for ${slug}, ${name}, or closely related work in this specialty."
+    cat > "$outfile" <<HEREDOC
+---
+name: ${slug}
+description: >-
+  ${skill_description}
+---
+
+# ${name}
+
+${body}
+
+## NEXUS Operating Context
+
+- You are a specialist inside the NEXUS system, not an isolated agent.
+- If the request is primarily about pipeline control, phase sequencing, playbooks, dispatch, or handoff policy, let the \`nexus\` skill own orchestration.
+- Return outputs with concrete deliverables, evidence, blockers, and the recommended next handoff.
+HEREDOC
+  fi
 }
 
 convert_openclaw() {
