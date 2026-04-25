@@ -650,10 +650,76 @@ Agents are copied directly from the repo into `~/.github/agents/` and `~/.copilo
 ./scripts/install.sh --tool copilot
 ```
 
-Then activate in GitHub Copilot:
+#### Full Setup (Cursor-equivalent experience)
+
+Run all three steps to get slash commands, agent picker, and NEXUS prompts:
+
+**Step 1 — Install agents** (194 `.md` agents → user-level agent picker)
+
+```bash
+./scripts/install.sh --tool copilot
 ```
+
+**Step 2 — Install skills** (195 `SKILL.md` skills including `nexus` → `/` slash commands)
+
+```bash
+# Requires cursor skills to be generated first
+./scripts/convert.sh --tool cursor
+cp -r integrations/cursor/skills/* ~/.copilot/skills/
+```
+
+**Step 3 — Configure VS Code** (add to `settings.json` so agents appear in the agent picker)
+
+```json
+"chat.agentFilesLocations": [
+  "~/.github/agents",
+  "~/.copilot/agents"
+]
+```
+
+**Step 4 — Add NEXUS prompt files** (optional, for one-click pipeline activation)
+
+Create `~/.config/Code/User/prompts/nexus-sprint.prompt.md` (or equivalent on macOS:
+`~/Library/Application Support/Code/User/prompts/`) with the activation prompts from
+[strategy/QUICKSTART.md](strategy/QUICKSTART.md). Three suggested files:
+
+| File | Mode | Use when |
+|------|------|----------|
+| `nexus-full.prompt.md` | NEXUS-Full | Building a complete product from scratch |
+| `nexus-sprint.prompt.md` | NEXUS-Sprint | Feature or MVP, 2-6 weeks |
+| `nexus-micro.prompt.md` | NEXUS-Micro | Single task: bug fix, audit, campaign |
+
+Restart VS Code after all steps.
+
+#### Activation
+
+Once installed, use in Copilot Chat:
+
+```
+# Slash command (via skills)
+/nexus
+/frontend-developer
+
+# Agent picker (via chat.agentFilesLocations)
+# Select any of the 194 agents from the agent dropdown
+
+# Named activation
 Use the Frontend Developer agent to review this component.
+Activate Agents Orchestrator in NEXUS-Sprint mode for this feature.
+
+# One-click prompts (if you created the prompt files)
+/nexus-sprint
+/nexus-micro
 ```
+
+#### Capability Comparison
+
+| Feature | Cursor | VS Code + Copilot |
+|---------|--------|-------------------|
+| Slash commands (`/nexus`, `/frontend-developer`) | ✅ native | ✅ via `~/.copilot/skills/` |
+| Agent persona picker | ✅ native | ✅ via `chat.agentFilesLocations` |
+| NEXUS references auto-loaded | ✅ | ✅ progressive loading |
+| NEXUS pipeline prompts | manual | ✅ via user prompt files |
 
 See [integrations/github-copilot/README.md](integrations/github-copilot/README.md) for details.
 </details>
