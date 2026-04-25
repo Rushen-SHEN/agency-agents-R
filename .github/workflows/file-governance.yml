@@ -1,0 +1,19 @@
+name: File Governance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  audit:
+    name: Audit repository file hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run file governance audit
+        run: |
+          chmod +x scripts/file-governance.sh
+          ./scripts/file-governance.sh
